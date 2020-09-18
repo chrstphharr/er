@@ -20,6 +20,7 @@ from keras.layers import Lambda
 from keras.layers import Activation
 from matplotlib import pyplot
 from keras import backend
+from imutils import paths
 
 # custom activation function
 def custom_activation(output):
@@ -95,15 +96,30 @@ def define_gan(g_model, d_model):
 # load the images
 def load_real_samples():
 	# load dataset
-	(trainX, trainy), (_, _) = load_data()
-	# expand to 3d, e.g. add channels
-	X = expand_dims(trainX, axis=-1)
-	# convert from ints to floats
-	X = X.astype('float32')
-	# scale from [0,255] to [-1,1]
-	X = (X - 127.5) / 127.5
-	print(X.shape, trainy.shape)
-	return [X, trainy]
+	df = pd.read_csv("./CategoryRatings.csv"
+	#LABELS = set(["Adoration","Amusement","Anger","Awe","Confusion","Contempt","Contentment","Desire","Disappointment","Disgust","Distress","Ecstasy","Elation","Embarrassment","Fear","Guilt","Interest","Neutral","Pain","Pride","Realization","Relief","Romantic","love","Sadness","Serenity","Shame","Surprise (negative)","Surprise (positive)","Sympathy","Triumph"])
+	datagen=ImageDataGenerator(rescale=1./255.)
+	test_datagen=ImageData
+	myData = datagen.flow_from_dataframe(dataframe=df[:1000],
+					     directory ="./CowanEtAlVocalBursts",
+					     x_col="Filenames",
+					     y_col="labels",
+					     batch_size=32,
+					     seed = 42,
+					     shuffle=True;
+					     class_mode="categorical",
+					     classes = ["Adoration","Amusement","Anger","Awe","Confusion","Contempt","Contentment","Desire","Disappointment","Disgust","Distress","Ecstasy","Elation","Embarrassment","Fear","Guilt","Interest","Neutral","Pain","Pride","Realization","Relief","Romantic","love","Sadness","Serenity","Shame","Surprise (negative)","Surprise (positive)","Sympathy","Triumph"],
+					     target_size(100,100))
+	#imagePaths = list(paths.list_images(CowenEtAlVocalBursts))
+	#(trainX, trainy), (_, _) = load_data()
+	## expand to 3d, e.g. add channels
+	#X = expand_dims(trainX, axis=-1)
+	## convert from ints to floats
+	#X = X.astype('float32')
+	## scale from [0,255] to [-1,1]
+	#X = (X - 127.5) / 127.5
+	#print(X.shape, trainy.shape)
+	#return [X, trainy]
 
 # select a supervised subset of the dataset, ensures classes are balanced
 def select_supervised_samples(dataset, n_samples=100, n_classes=10):
