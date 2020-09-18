@@ -13,7 +13,7 @@ from keras.layers import Dense
 from keras.layers import Reshape
 from keras.layers import Flatten
 from keras.layers import Conv2D
-from keras.layers import Conv2DTranspose
+from keras.layers import Upsample2D
 from keras.layers import LeakyReLU
 from keras.layers import Dropout
 from keras.layers import Lambda
@@ -68,10 +68,10 @@ def define_generator(latent_dim):
 	gen = LeakyReLU(alpha=0.2)(gen)
 	gen = Reshape((7, 7, 128))(gen)
 	# upsample to 14x14
-	gen = Conv2DTranspose(128, (4,4), strides=(2,2), padding='same')(gen)
+	gen = Upsample2D(128, (4,4), strides=(2,2), padding='same')(gen)
 	gen = LeakyReLU(alpha=0.2)(gen)
 	# upsample to 28x28
-	gen = Conv2DTranspose(128, (4,4), strides=(2,2), padding='same')(gen)
+	gen = Upsample2D(128, (4,4), strides=(2,2), padding='same')(gen)
 	gen = LeakyReLU(alpha=0.2)(gen)
 	# output
 	out_layer = Conv2D(1, (7,7), activation='tanh', padding='same')(gen)
