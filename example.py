@@ -99,13 +99,13 @@ def define_gan(g_model, d_model):
 def load_real_samples():
 	# load dataset
 	df = pd.read_csv("./CategoryRatings.csv")
-	#LABELS = set(["Adoration","Amusement","Anger","Awe","Confusion","Contempt","Contentment","Desire","Disappointment","Disgust","Distress","Ecstasy","Elation","Embarrassment","Fear","Guilt","Interest","Neutral","Pain","Pride","Realization","Relief","Romantic","love","Sadness","Serenity","Shame","Surprise (negative)","Surprise (positive)","Sympathy","Triumph"])
+	LABELS = set(["Adoration","Amusement","Anger","Awe","Confusion","Contempt","Contentment","Desire","Disappointment","Disgust","Distress","Ecstasy","Elation","Embarrassment","Fear","Guilt","Interest","Neutral","Pain","Pride","Realization","Relief","Romantic","love","Sadness","Serenity","Shame","Surprise (negative)","Surprise (positive)","Sympathy","Triumph"])
 	datagen=ImageDataGenerator(rescale=1./255.)
 	test_datagen=ImageDataGenerator(rescale=1./255.)
 	myData = datagen.flow_from_dataframe(dataframe=df[:1000],
 					     directory ="./CowanEtAlVocalBursts",
 					     x_col="Filename",
-					     y_col=columns,
+					     y_col=LABELS,
 					     batch_size=32,
 					     seed = 42,
 					     shuffle=True,
