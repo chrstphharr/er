@@ -105,7 +105,7 @@ def load_real_samples():
 	myData = datagen.flow_from_dataframe(dataframe=df[:1000],
 					     directory ="./CowanEtAlVocalBursts",
 					     x_col="Filename",
-					     y_col="labels",
+					     y_col=columns,
 					     batch_size=32,
 					     seed = 42,
 					     shuffle=True,
