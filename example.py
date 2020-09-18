@@ -138,7 +138,7 @@ def load_real_samples():
 					     batch_size=32,
 					     seed = 42,
 					     shuffle=True,
-					     class_mode="None",
+					     class_mode=None,
 					     classes = ["Adoration","Amusement","Anger","Awe","Confusion","Contempt","Contentment","Desire","Disappointment","Disgust","Distress","Ecstasy","Elation","Embarrassment","Fear","Guilt","Interest","Neutral","Pain","Pride","Realization","Relief","Romantic","love","Sadness","Serenity","Shame","Surprise (negative)","Surprise (positive)","Sympathy","Triumph"],
 					     target_size=(100,100))
 	#imagePaths = list(paths.list_images(CowenEtAlVocalBursts))
