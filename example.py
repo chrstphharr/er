@@ -22,7 +22,7 @@ from matplotlib import pyplot
 from keras import backend
 from imutils import paths
 import pandas as pd
-from keras.preprocessing.image import ImageDataGenerator
+from keras_preprocessing.image import ImageDataGenerator
 
 # custom activation function
 def custom_activation(output):
