@@ -106,7 +106,7 @@ def load_real_samples():
 					     y_col="labels",
 					     batch_size=32,
 					     seed = 42,
-					     shuffle=True;
+					     shuffle=True,
 					     class_mode="categorical",
 					     classes = ["Adoration","Amusement","Anger","Awe","Confusion","Contempt","Contentment","Desire","Disappointment","Disgust","Distress","Ecstasy","Elation","Embarrassment","Fear","Guilt","Interest","Neutral","Pain","Pride","Realization","Relief","Romantic","love","Sadness","Serenity","Shame","Surprise (negative)","Surprise (positive)","Sympathy","Triumph"],
 					     target_size(100,100))
