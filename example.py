@@ -109,7 +109,7 @@ def load_real_samples():
 					     shuffle=True,
 					     class_mode="categorical",
 					     classes = ["Adoration","Amusement","Anger","Awe","Confusion","Contempt","Contentment","Desire","Disappointment","Disgust","Distress","Ecstasy","Elation","Embarrassment","Fear","Guilt","Interest","Neutral","Pain","Pride","Realization","Relief","Romantic","love","Sadness","Serenity","Shame","Surprise (negative)","Surprise (positive)","Sympathy","Triumph"],
-					     target_size(100,100))
+					     target_size=(100,100))
 	#imagePaths = list(paths.list_images(CowenEtAlVocalBursts))
 	#(trainX, trainy), (_, _) = load_data()
 	## expand to 3d, e.g. add channels
