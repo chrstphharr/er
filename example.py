@@ -104,7 +104,7 @@ def load_real_samples():
 	test_datagen=ImageDataGenerator(rescale=1./255.)
 	myData = datagen.flow_from_dataframe(dataframe=df[:1000],
 					     directory ="./CowanEtAlVocalBursts",
-					     x_col="Filenames",
+					     x_col="Filename",
 					     y_col="labels",
 					     batch_size=32,
 					     seed = 42,
