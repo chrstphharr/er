@@ -96,7 +96,7 @@ def define_gan(g_model, d_model):
 # load the images
 def load_real_samples():
 	# load dataset
-	df = pd.read_csv("./CategoryRatings.csv"
+	df = pd.read_csv("./CategoryRatings.csv")
 	#LABELS = set(["Adoration","Amusement","Anger","Awe","Confusion","Contempt","Contentment","Desire","Disappointment","Disgust","Distress","Ecstasy","Elation","Embarrassment","Fear","Guilt","Interest","Neutral","Pain","Pride","Realization","Relief","Romantic","love","Sadness","Serenity","Shame","Surprise (negative)","Surprise (positive)","Sympathy","Triumph"])
 	datagen=ImageDataGenerator(rescale=1./255.)
 	test_datagen=ImageData
